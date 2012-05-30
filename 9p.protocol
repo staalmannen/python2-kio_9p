@@ -1,0 +1,14 @@
+[Protocol]
+exec=kpythonpluginfactory
+protocol=9p
+input=none
+output=filesystem
+listing=Name,Type,Size,Date,Access,Owner,Group
+reading=true
+makedir=true
+deleting=true
+opening=true
+moving=true
+Icon=network-workgroup
+
+

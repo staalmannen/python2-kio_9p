@@ -1,0 +1,36 @@
+9P KIO slave written in Python
+This package is redistributed under the MIT license, copyright Jens Staal.
+
+This is a work-in progress attempt and I have no experience with python from before.
+In order for Version 0.0.1 to be released, the following criteria need to be fullfilled:
+- the KIO slave should work as a 9P client (that is, a 9P share should be accessible from Dolphin or Konqueror via 9p://<URL>)
+ 
+Objectives: 
+
+This kio slave aims to provide 9P2000 capabilities to KDE. This could be used in many ways
+- proof-of-concept implementation (alternative more performant ones can be made later)
+- 9P protocol for KDE browsers (Konqueror, Rekonq) similar to Anant's web9 for mozilla
+- accessing 9P shares in a similar way as for ssh (fish), CIFS (samba) etc
+- if possible, a pre-programmed link to "sources" (Bell labs' /n/sources) under "Network"
+- if possible, an easy way to serve directories via 9P from KDE.
+- if possible, enable integration between KDE and plan9port (acme, plumbing,devwsys) and/or 9vx via 9P
+- if possible, enable access to various system components (cpu, proc ...) via a 9P interface
+
+Information sources
+
+info about KIO slaves in python imported from:
+http://wiki.python.org/moin/IoSlavesTutorial
+and info about py9p gleanded from /usr/bin/{cl, localsrv, simplesrv}.py from py9p package + direct inspection of libraries in py9p
+(example client and server implementations of py9p)
+The problem right now is to know how to feed info back and forth from those functions to those of the KIO implementation.
+
+Strategy:
+
+The first objective is to implement 9P client functionality to the KIO slave
+the most important information source for this implementation is
+/usr/bin/cl.py from the py9p package and the generic info that can be found about implementing a python KIO slave.
+
+
+Future plans:
+
+An alternative C/C++ implementation utilizing libixp for the 9P protocol, which should be faster.
